@@ -1,7 +1,12 @@
 ---
+import { Form } from "../components/reactComponents/Form/Form.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>Hello</h1>
+  <div class="notes-container">
+    <Form client:load />
+  </div>
 </Layout>
+
+<style></style>

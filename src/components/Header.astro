@@ -1,0 +1,47 @@
+<header class="header">
+  <div class="container">
+    <h1 class="header-title">Notes App</h1>
+    <nav class="header-navar">
+      <a href="/About">Aserca de la App</a>
+      <a href="/">Crea Una Nota</a>
+      <a href="/">Sobre Mi</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    width: 100%;
+    background: var(--bg-color-header);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .container {
+    max-width: 1000px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-title {
+    font-size: 1.5rem;
+    color: var(--text-color);
+  }
+  .header-navar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .header-navar a {
+    text-decoration: none;
+    color: var(--text-color-secondary);
+    transition: all 0.4s;
+  }
+  .header-navar a:hover {
+    color: var(--text-color);
+    text-shadow: 0 1px 10px rgba(255, 255, 255, 0.5);
+  }
+</style>

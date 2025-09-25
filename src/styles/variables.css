@@ -1,5 +1,16 @@
 :root {
-  --bg-color: #212121;
-  --bg-color-header: #111;
-  --text-color: #f2f2f2;
+  --bg-color: #0a0908;
+  --bg-color-header: #000000;
+  --border-color: #333;
+
+  --form-bg-color: #fffcf9;
+  --form-bg-color-secondary: #f8f8f8;
+  --form-border-color: #d2d7df;
+  --form-text-color: #0a090c;
+  --form-text-color-secondary: #fcfffc;
+
+  --text-color: #fafaff;
+  --text-color-secondary: #e4d9ff;
+
+  --button-color: #0c120c;
 }

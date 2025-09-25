@@ -1,0 +1,67 @@
+#create-new-note {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+
+  background: var(--form-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#create-new-note h2 {
+  margin: 1rem;
+  font-family: "Roboto";
+  font-size: 2rem;
+  color: var(--form-text-color);
+}
+#create-new-note .form-section {
+  padding: 1rem 0;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#create-new-note .form-section label {
+  color: var(--form-text-color);
+}
+/* Imputs */
+#create-new-note .form-section input {
+  background: var(--form-bg-color-secondary);
+  border: none;
+  /* border-bottom: 1px solid var(--form-border-color); */
+  height: 50px;
+  padding: 10px;
+}
+#create-new-note .form-section input,
+textarea:focus {
+  outline: none;
+}
+
+/* Textarea */
+#create-new-note .form-section textarea {
+  border: none;
+  border: 1px solid var(--form-border-color);
+
+  padding: 10px;
+  width: 100%;
+  min-width: 600px;
+  max-width: 600px;
+  min-height: 100px;
+}
+
+/* BUTTON */
+#create-new-note .form-button {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 600px;
+  height: 50px;
+  border: none;
+  background: var(--button-color);
+  border-radius: 50px;
+  color: var(--form-text-color-secondary);
+  transition: ease 0.3s;
+}
+#create-new-note .form-button:hover {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.01);
+}
