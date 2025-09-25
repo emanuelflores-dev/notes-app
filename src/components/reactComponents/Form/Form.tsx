@@ -1,28 +1,49 @@
 import { useEffect, useState } from "react";
 import "./Form.css";
 
+// 1. Define una interfaz para la estructura de una nota
+interface Note {
+  title: string;
+  descripcion: string;
+  contenido: string;
+}
+
 export const Form = () => {
-  const [note, setNote] = useState({
+  const [note, setNote] = useState<Note>({
     title: "",
     descripcion: "",
     contenido: "",
   });
 
-  const [notes, setNotes] = useState<any[]>([]);
+  // 2. Inicializa el estado con un array vacío para el SSR.
+  //    No intentes leer localStorage directamente aquí.
+  const [notes, setNotes] = useState<Note[]>([]);
 
+  // 3. Estado para controlar si el componente está montado en el cliente.
+  const [isClient, setIsClient] = useState(false);
+
+  // 4. Usa useEffect para cargar los datos de localStorage.
+  //    Esto solo se ejecutará en el cliente después de la hidratación inicial.
   useEffect(() => {
-    const savedNote = localStorage.getItem("note");
-    if (savedNote) {
-      setNote(JSON.parse(savedNote));
+    try {
+      const storedNotes = localStorage.getItem("notesList");
+      if (storedNotes) {
+        setNotes(JSON.parse(storedNotes));
+      }
+    } catch (error) {
+      console.error("Error al cargar datos de localStorage:", error);
     }
+    // Una vez que se ha montado, establece isClient en true.
+    setIsClient(true);
   }, []);
 
+  // 5. Usa otro useEffect para guardar los datos cuando cambien las notas.
   useEffect(() => {
-    const savedNotes = localStorage.getItem("notes");
-    if (savedNotes) {
-      setNotes(JSON.parse(savedNotes));
+    if (isClient) {
+      // Solo guarda si ya estamos en el cliente
+      localStorage.setItem("notesList", JSON.stringify(notes));
     }
-  }, [note]);
+  }, [notes, isClient]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,10 +54,7 @@ export const Form = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Nota creada:", note);
-
-    localStorage.setItem("note", JSON.stringify(note));
-    setNotes([...notes, note]);
+    setNotes((prevNotes) => [...prevNotes, note]);
     setNote({ title: "", descripcion: "", contenido: "" });
   };
 
