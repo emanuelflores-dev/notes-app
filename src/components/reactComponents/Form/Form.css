@@ -1,5 +1,6 @@
 #create-new-note {
-  max-width: 800px;
+  width: 100%;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 1rem;
 
@@ -64,4 +65,10 @@ textarea:focus {
 #create-new-note .form-button:hover {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
   transform: scale(1.01);
+}
+
+.containerNoter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

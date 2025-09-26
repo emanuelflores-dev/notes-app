@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Form.css";
+import { MostrarNotas } from "../MostrarNotas/MostrarNotas";
 
 // 1. Define una interfaz para la estructura de una nota
 interface Note {
@@ -59,50 +60,54 @@ export const Form = () => {
   };
 
   return (
-    <form id="create-new-note" onSubmit={handleSubmit}>
-      <h2>Crea una Nota</h2>
+    <div className="containerNoter">
+      <form id="create-new-note" onSubmit={handleSubmit}>
+        <h2>Crea una Nota</h2>
 
-      <div className="form-section">
-        <label>Titulo: </label>
-        <input
-          type="text"
-          id="nombre"
-          name="title"
-          placeholder="Titulo"
-          required
-          value={note.title}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="form-section">
+          <label>Titulo: </label>
+          <input
+            type="text"
+            id="nombre"
+            name="title"
+            placeholder="Titulo"
+            required
+            value={note.title}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div className="form-section">
-        <label>Descripcion: </label>
-        <input
-          type="text"
-          id="descripcion"
-          name="descripcion"
-          placeholder="Descripcion"
-          required
-          value={note.descripcion}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="form-section">
+          <label>Descripcion: </label>
+          <input
+            type="text"
+            id="descripcion"
+            name="descripcion"
+            placeholder="Descripcion"
+            required
+            value={note.descripcion}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div className="form-section">
-        <label>Contenido: </label>
-        <textarea
-          id="contenido"
-          name="contenido"
-          placeholder="Contenido"
-          required
-          value={note.contenido}
-          onChange={handleChange}
-        ></textarea>
-      </div>
+        <div className="form-section">
+          <label>Contenido: </label>
+          <textarea
+            id="contenido"
+            name="contenido"
+            placeholder="Contenido"
+            required
+            value={note.contenido}
+            onChange={handleChange}
+          ></textarea>
+        </div>
 
-      <button className="form-button" type="submit">
-        CREAR NOTA
-      </button>
-    </form>
+        <button className="form-button" type="submit">
+          CREAR NOTA
+        </button>
+      </form>
+
+      <MostrarNotas notes={notes} />
+    </div>
   );
 };
